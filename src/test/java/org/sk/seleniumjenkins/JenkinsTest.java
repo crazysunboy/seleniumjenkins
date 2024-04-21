@@ -2,6 +2,7 @@ package org.sk.seleniumjenkins;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,9 +18,12 @@ public class JenkinsTest {
 	@Test
 	public void testSeleniumInJenkinsAgent() throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
-		WebDriver driver=new ChromeDriver();
+		ChromeOptions options = new ChromeOptions(); 
+		options.addArguments("disable-infobars");
+//		options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
+		WebDriver driver = new ChromeDriver(options); 
 		driver.get("https://www.google.com/");
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		System.out.println(System.getProperty("env", "dev"));
 		String pageTitle = driver.getTitle();
 		Assert.assertEquals("Google", pageTitle);
