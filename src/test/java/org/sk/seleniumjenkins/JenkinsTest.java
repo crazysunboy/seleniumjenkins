@@ -15,10 +15,11 @@ public class JenkinsTest {
 	}
 	
 	@Test
-	public void testSeleniumInJenkinsAgent() {
+	public void testSeleniumInJenkinsAgent() throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.google.com/");
+		Thread.sleep(5000);
 		String pageTitle = driver.getTitle();
 		Assert.assertEquals("Google", pageTitle);
 		driver.quit();
