@@ -20,7 +20,7 @@ public class JenkinsTest {
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.google.com/");
 		String pageTitle = driver.getTitle();
-		Assert.assertEquals("Google!", pageTitle);
+		Assert.assertEquals("Google", pageTitle);
 		driver.quit();
 	}
 }
