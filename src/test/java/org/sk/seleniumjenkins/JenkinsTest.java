@@ -24,7 +24,7 @@ public class JenkinsTest {
 		WebDriver driver = new ChromeDriver(options); 
 		driver.get("https://www.google.com/");
 		Thread.sleep(1000);
-		System.out.println(System.getProperty("env", "dev"));
+		System.out.println("Logged in with User_ID: "+System.getProperty("uid", "none")+" and Password: " + System.getProperty("pwd", "none"));
 		String pageTitle = driver.getTitle();
 		Assert.assertEquals("Google", pageTitle);
 		driver.quit();
